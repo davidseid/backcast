@@ -16,7 +16,6 @@ describe('VideoListView', function() {
 
   it('should render five `VideoListEntry` when given five videos', function() {
     view.render(); // fake video data contains 5 entries
-    // console.log(VideoListEntryView.prototype.render);
     expect(VideoListEntryView.prototype.render).to.have.callCount(5);
   });
 
