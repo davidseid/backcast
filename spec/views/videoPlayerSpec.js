@@ -5,7 +5,7 @@ describe ('VideoPlayerView', function() {
     sinon.spy(VideoPlayerView.prototype, 'render');
 
     collection = new Videos(fakeVideoData);
-    view = new VideoPlayerView({ collection: collection });
+    view = new VideoPlayerView({ collection: collection, el: "<div></div>" });
     view.template = _.template('<div class="video-player-details"><%= snippet.title %></div>');
 
     model = collection.at(0);

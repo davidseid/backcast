@@ -1,13 +1,13 @@
 var VideoPlayerView = Backbone.View.extend({
   //model = single video model
   //el = .player class
-  el: $('.player'),
+  //el: $('.player'),
   //model: this.collection.models[0],
 
   initialize: function() {
     this.model = this.collection.models[0];
     this.collection.on('select', function(selectedModel) {
-      
+      console.log('heard in vpv');
       this.model = selectedModel;
       this.render();
       //this.render(something);
