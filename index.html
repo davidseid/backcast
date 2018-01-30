@@ -30,9 +30,11 @@
   <script src="src/views/videoPlayer.js"></script>
 
   <script>
-    backboneReady(() => {
-      new AppView();
-    });
+$(document).ready(function () {
+  backboneReady(() => {
+    new AppView();
+  });
+});
   </script>
 
 </body>
