@@ -11,7 +11,8 @@ describe('VideoListEntryView', function() {
   });
 
   it('should render a video\'s content', function() {
-    expect(view.el).to.match(new RegExp(model.attributes.title));
+    expect(view.$el.html()).to.equal('<div class="video-list-entry-title">Cute cat video</div>');
+    //expect(view.el).to.match(new RegExp(model.attributes.title));
   });
 
   it('should call select on the model when the title is clicked', function() {
