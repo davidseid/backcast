@@ -4,15 +4,17 @@ var AppView = Backbone.View.extend({
 
   initialize: function() {
     this.videos = new Videos(exampleVideoData);
-    //this.videos.search();
-    this.video = new Video(exampleVideoData[0]);
-    this.videos.on('search' /* function here would set this.videos to a new videos returned by search*/);
-    this.videos.search();
+    this.listenTo(this.videos, 'sync', function () { this.videos.at(0).select(); });
+    this.videos.search('westballz vs zain');
     this.render();
   },
 
   render: function() {
     this.$el.html(this.template());
+    new SearchView({
+      collection: this.videos,
+      el: this.$('.search')
+    }).render();
     new VideoListView({
       el: $('.list'), 
       collection: this.videos 
