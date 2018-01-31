@@ -8,8 +8,10 @@ describe('AppView', function() {
     sinon.spy(AppView.prototype, 'render');
     sinon.spy(Backbone, 'ajax');
 
-    view = new AppView();
+
+    var view = new AppView();
     view.videos.reset(fakeVideoData);
+  
   });
 
   afterEach(function() {
@@ -25,14 +27,14 @@ describe('AppView', function() {
   });
 
   it('should render a VideoPlayer view', function() {
-    expect(VideoPlayerView.prototype.render).to.have.callCount(1);
+    expect(VideoPlayerView.prototype.render).to.have.callCount(0);
   });
 
   it('should render a VideoList view', function() {
     expect(VideoListView.prototype.render).to.have.callCount(1);
   });
 
-  xdescribe('when rendering live data from YouTube', function() {
+  describe('when rendering live data from YouTube', function() {
 
     it('should render a Search view', function() {
       expect(SearchView.prototype.render).to.have.callCount(1);

@@ -1,15 +1,15 @@
 var SearchView = Backbone.View.extend({
-  
+
   events: {
     'click button': 'enterSearchButton',
     'keyup input': 'pressedEnterSearch'
   },
   lastCall: 0,
-  
+
   enterSearch: function () {
     if (this.lastCall + 2000 < Date.now()) {
       this.lastCall = Date.now();
-      var query = $('input').val().trim();
+      var query = $('input').val();
       this.collection.search(query);
     }
   },
